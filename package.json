@@ -1,0 +1,17 @@
+{
+  "name": "chain-length-calculator",
+  "version": "1.0.0",
+  "description": "Bike chain length calculator. Derailleur bikes by the Sheldon Brown equation, single speed and fixed by solving the chain loop exactly.",
+  "type": "module",
+  "files": ["js", "css", "index.html", "docs"],
+  "scripts": {
+    "test": "node --test test/",
+    "start": "python3 -m http.server 8000"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VishalSharmavj/chain-length-calculator.git"
+  },
+  "homepage": "https://bikeshala.com/tools/chain-length-calculator/"
+}

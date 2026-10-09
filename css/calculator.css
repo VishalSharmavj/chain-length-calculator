@@ -1,0 +1,167 @@
+/* Result cards, stats strip and validation list. */
+
+.results { margin-top: 1.5rem; }
+
+.cards { display: grid; gap: var(--gap); }
+
+.card {
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	padding: 1.1rem;
+}
+
+.card.is-empty { opacity: .5; }
+
+.card .length {
+	display: flex;
+	align-items: baseline;
+	gap: .3rem;
+	margin: .2rem 0 .4rem;
+}
+
+.card .length output {
+	font-size: 2.8rem;
+	font-weight: 700;
+	line-height: 1;
+	font-variant-numeric: tabular-nums;
+}
+
+.card .length span { color: var(--ink-soft); font-size: 1rem; }
+.card .order { margin: 0 0 .7rem; font-size: .9rem; color: var(--ink-soft); }
+.card .order b { color: var(--ink); }
+
+.meta {
+	display: flex; flex-wrap: wrap; gap: .4rem;
+	list-style: none; margin: 0; padding: 0; font-size: .8125rem;
+}
+
+.meta li {
+	background: var(--bg);
+	border: 1px solid var(--line);
+	border-radius: 999px;
+	padding: .15rem .6rem;
+}
+
+.same {
+	margin: var(--gap) 0 0;
+	padding: .7rem .9rem;
+	background: var(--good-bg);
+	color: var(--good);
+	border-radius: var(--radius);
+	font-size: .9rem;
+}
+
+.stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+	gap: var(--gap);
+	margin: var(--gap) 0 0;
+	padding: 1rem;
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+}
+
+.stats dt {
+	font-size: .75rem; text-transform: uppercase;
+	letter-spacing: .05em; color: var(--ink-soft);
+}
+
+.stats dd {
+	margin: .2rem 0 0; font-size: 1.35rem;
+	font-weight: 600; font-variant-numeric: tabular-nums;
+}
+
+.problems {
+	margin: 0 0 var(--gap);
+	padding: .8rem .9rem .8rem 2.1rem;
+	background: var(--warn-bg);
+	color: var(--warn);
+	border-radius: var(--radius);
+	font-size: .9rem;
+}
+
+.problems li + li { margin-top: .35rem; }
+
+.panel.mt { margin-top: 1.5rem; }
+
+/* Mode switch: which of the three figures we solve for. */
+.modes {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .4rem;
+	margin-bottom: var(--gap);
+}
+
+.modes button {
+	flex: 1 1 8rem;
+	padding: .5rem .7rem;
+	font: inherit;
+	font-size: .875rem;
+	color: var(--ink);
+	background: var(--bg);
+	border: 1px solid var(--line);
+	border-radius: 7px;
+	cursor: pointer;
+}
+
+.modes button[aria-pressed="true"] {
+	background: var(--accent);
+	border-color: var(--accent);
+	color: #fff;
+	font-weight: 600;
+}
+
+.pair { display: grid; grid-template-columns: 1fr auto; gap: .4rem; }
+.pair select { width: auto; }
+
+.warn {
+	margin: var(--gap) 0 0;
+	padding: .8rem .9rem;
+	background: var(--warn-bg);
+	color: var(--warn);
+	border-radius: var(--radius);
+	font-size: .9rem;
+}
+
+.cards.two { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+
+.options { list-style: none; margin: var(--gap) 0 0; padding: 0; }
+.options li {
+	display: flex; flex-wrap: wrap; align-items: baseline; gap: .6rem;
+	padding: .7rem .9rem;
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	font-size: .9rem;
+}
+.options li + li { margin-top: .5rem; }
+.options li.is-best { border-color: var(--good); background: var(--good-bg); color: var(--good); }
+.options b { font-size: 1.1rem; }
+
+.steps { counter-reset: step; list-style: none; margin: 0; padding: 0; }
+.steps li {
+	counter-increment: step;
+	position: relative;
+	padding: .5rem 0 .5rem 2.2rem;
+	font-size: .9rem;
+	border-bottom: 1px solid var(--line);
+}
+.steps li:last-child { border-bottom: 0; }
+.steps li::before {
+	content: counter(step);
+	position: absolute; left: 0; top: .45rem;
+	width: 1.5rem; height: 1.5rem;
+	display: grid; place-items: center;
+	border-radius: 999px;
+	background: var(--accent); color: #fff;
+	font-size: .75rem; font-weight: 700;
+}
+
+.warnings {
+	margin: var(--gap) 0 0; padding: .8rem .9rem .8rem 2.1rem;
+	background: var(--surface); border: 1px solid var(--line);
+	border-radius: var(--radius); font-size: .875rem; color: var(--ink-soft);
+}
+.warnings li + li { margin-top: .35rem; }

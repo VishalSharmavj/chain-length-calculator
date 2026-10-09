@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chain Length Calculator</title>
+<meta name="description" content="Open-source bike chain length calculator. Derailleur bikes by the Sheldon Brown equation, single speed and fixed by solving the chain loop exactly.">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/calculator.css">
+</head>
+<body>
+<main class="wrap">
+
+	<header class="intro">
+		<h1>Chain Length Calculator</h1>
+		<p>How many links your chain needs, and how many to take out of a new one.
+		Derailleur bikes and single speed are different problems, so they get
+		different maths.</p>
+	</header>
+
+	<form class="panel" id="form" autocomplete="off">
+		<div class="modes" id="modes" role="group" aria-label="Drivetrain type">
+			<button type="button" data-mode="derailleur" aria-pressed="true">Derailleur</button>
+			<button type="button" data-mode="single" aria-pressed="false">Single speed / fixed</button>
+		</div>
+
+		<div class="row">
+			<label class="field"><span>Chainstay length <small>mm</small></span>
+				<input type="number" id="stay" value="430" min="250" max="800" step="1"></label>
+			<label class="field"><span id="lab-front">Largest chainring <small>teeth</small></span>
+				<input type="number" id="front" value="34" min="20" max="70" step="1"></label>
+			<label class="field"><span id="lab-rear">Largest sprocket <small>teeth</small></span>
+				<input type="number" id="rear" value="52" min="9" max="60" step="1"></label>
+		</div>
+
+		<div class="row" style="margin-top:1rem">
+			<label class="field" id="row-new"><span>New chain links <small>optional</small></span>
+				<input type="number" id="newchain" value="126" min="0" max="150" step="1"></label>
+			<label class="field check"><span>&nbsp;</span>
+				<span><input type="checkbox" id="halflink"> Half link available</span></label>
+			<label class="field check" id="row-susp"><span>&nbsp;</span>
+				<span><input type="checkbox" id="fullsus"> Full suspension</span></label>
+		</div>
+		<p class="note" id="stay-note">Measure centre of bottom bracket to centre
+		of rear axle. On full suspension, with the shock bottomed out.</p>
+	</form>
+
+	<section class="results" aria-live="polite">
+		<ul class="problems" id="problems" hidden></ul>
+
+		<div class="cards two" id="cards">
+			<article class="card" id="card-links">
+				<h3 id="title-links">Chain length</h3>
+				<p class="length"><output id="links">—</output><span>links</span></p>
+				<p class="order" id="links-sub"></p>
+				<ul class="meta" id="links-meta"></ul>
+			</article>
+			<article class="card" id="card-remove">
+				<h3 id="title-remove">Remove from a new chain</h3>
+				<p class="length"><output id="remove">—</output><span>links</span></p>
+				<p class="order" id="remove-sub"></p>
+			</article>
+		</div>
+
+		<ul class="options" id="options" hidden></ul>
+		<p class="same" id="magic" hidden></p>
+		<ul class="warnings" id="warnings" hidden></ul>
+
+		<div class="panel mt" id="method">
+			<h2>Check it on the bike</h2>
+			<ol class="steps" id="steps"></ol>
+		</div>
+	</section>
+
+	<footer class="foot">
+		<p><strong>This is a simplified build.</strong> It covers both drivetrain
+		types and the shop check. For inches or millimetres throughout, a diagram
+		of the chain path and bike presets, use the full version:</p>
+		<p class="cta"><a href="https://bikeshala.com/tools/chain-length-calculator/">Chain Length Calculator on Bikeshala →</a></p>
+		<p class="src">Source: <a href="https://github.com/VishalSharmavj/chain-length-calculator">github.com/VishalSharmavj/chain-length-calculator</a> · MIT</p>
+	</footer>
+
+</main>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
